@@ -11,7 +11,7 @@ api = tweepy.API(auth)
 #makes sure authentication is successfull
 try:
     api.verify_credentials()
-    print("Authentication successfull")
+    print("Authentication successful")
 except:
     print("Error during authentication")
 
@@ -38,12 +38,16 @@ def get_quote():
 
 quote = get_quote()
 
+last = quote[0][len(quote[0])-1:]
+if(last == " "):
+    quote[0] = quote[0][:len(quote[0])-1]
+
 #tweets the tweet
 def tweet(quote):
     try:
         api.update_status("do your homework." + '\n\n"' + quote[0] + '"' + " -" + quote[1])
         print("Success")
     except:
-        print("Tweet attempt unsuccessfull")
+        print("Tweet attempt unsuccessful")
 
 tweet(quote)
