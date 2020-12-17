@@ -3,8 +3,8 @@ import requests
 import json
 
 #authenticates to twitter and returns
-auth = tweepy.OAuthHandler("LwFDQXqYKFAztmz5uaNi1kQbO","RFw4LYweYXFxFRJjREX8wU27BLMwm0TtRduclM8nlK6n4PI2fa")
-auth.set_access_token("1339319976960864260-1aDLh9VEiZvW3TQr3jsIiwztubmCvd","oF3Knos3IDkP94w7a1ZS7vetLm8t0wOwWh47GVUqDn9EP")
+auth = tweepy.OAuthHandler("[api_key]","[api_secret_key]")
+auth.set_access_token("[access_token]","[access_token_secret]")
 
 api = tweepy.API(auth)
 
