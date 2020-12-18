@@ -3,8 +3,8 @@ import requests
 import json
 
 #authenticates to twitter and returns
-auth = tweepy.OAuthHandler("[api_key]","[api_secret_key]")
-auth.set_access_token("[access_token]","[access_token_secret]")
+auth = tweepy.OAuthHandler("LwFDQXqYKFAztmz5uaNi1kQbO","RFw4LYweYXFxFRJjREX8wU27BLMwm0TtRduclM8nlK6n4PI2fa")
+auth.set_access_token("1339319976960864260-1aDLh9VEiZvW3TQr3jsIiwztubmCvd","oF3Knos3IDkP94w7a1ZS7vetLm8t0wOwWh47GVUqDn9EP")
 
 api = tweepy.API(auth)
 
@@ -38,6 +38,9 @@ def get_quote():
 
 quote = get_quote()
 
+if(quote[1]):
+    quote[1] = " -" + quote[1]
+
 last = quote[0][len(quote[0])-1:]
 if(last == " "):
     quote[0] = quote[0][:len(quote[0])-1]
@@ -45,7 +48,7 @@ if(last == " "):
 #tweets the tweet
 def tweet(quote):
     try:
-        api.update_status("do your homework." + '\n\n"' + quote[0] + '"' + " -" + quote[1])
+        api.update_status("do your homework." + '\n\n"' + quote[0] + '"' + quote[1])
         print("Success")
     except:
         print("Tweet attempt unsuccessful")
